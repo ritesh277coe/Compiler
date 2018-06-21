@@ -44,14 +44,16 @@ For example: a+b\*c (From https://en.cppreference.com/w/cpp/language/operator_pr
 The right evaluation tree is a+(b\*c).<br/>
 <br/>
 So how we write grammer that can help us work with **ASSOCIATIVITY RULES and PRECEDENCE RULES OF OPERATOR**.<br/>
-**RULES OF THUMB:**
+<br/>
+**RULES OF THUMB:**<br/>
 <br/>
 	1) Use of left/right recursion decides the associativity as it helps to determine wheather LHS is processed first or RHS is processed first.<br/>
 	2) Writing production in a manner that they are further away from Root production controls the precedence. Furthest from root would be first to get evaluated.<br/>
 <br/>
 How to convert ambigous grammers into non ambigous:<br/>
 E = E\*E/E+E/id. <br/>
-**What we infer from the grammer just by looking at it:**
+<br/>
+**What we infer from the grammer just by looking at it:**<br/>
 <br/>
 E+E is ambigous and '+' has no associativity preference. It can be treated as left or right associative.<br/>
 E\*E is ambigous and '\*' has no associativity preference. It can be treated as left or right associative.<br/>
