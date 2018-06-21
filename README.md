@@ -17,7 +17,9 @@ LISP representation 2:  ADD((MUL ((2) (3))) (4))<br/>
 Above grammar is ambiguous  as it has 2 AST for same expression. The problem with the grammar is that is not aware of PRECEDENCE RULES OF OPERATOR. <br/>
 As we know that '\*' has higher precedence then '+', '\*' needs to be evaluated first. Hence representation 2 is right.<br/>
 <br/>
-Another example of ambiguous  grammar:
+Another example of ambiguous  grammar:<br/>
+
+```
 Ex1	S => aS|Sa|a  input = aa, since 2 parse trees, hence grammar is ambiguous 
 	S -> (aS) -> (a(a)) 1st parse tree
 	S -> (Sa) -> ((a)a) 2nd parse tree
@@ -28,7 +30,8 @@ Ex2	S -> aSbS | bSaS | e   input ab, Grammar is not ambiguous  for input ab
 	input = abab, so 2 parse tree and grammar is ambiguous 
 	S -> aSbS -> aebS -> aeb(aSbS) -> aeb(aebS) -> aebaebe = abab
 	S -> a(bSaS)bS -> a(beaS)bS -> a(beae)bS -> abeaebe = abab
-	
+```
+
 **Few definitions:**<br/>
 <br/>
 What is Left associativity or Right associativity?
