@@ -1,6 +1,7 @@
 # Compiler<br/>
 
 **Basic compiler theory**.<br/>
+<br/>
 G = (V, T, P, S) where G = grammer, v = variable, T = terminal, P = production, and S = start symbol<br/>
 <br/>
 Ex: E => E+E | E\*E | id ..Lets derive id+id+id   (assume input as 2+3+4)<br/>
@@ -28,8 +29,8 @@ Ex2	S -> aSbS | bSaS | e   input ab, Grammer is not ambigous for input ab
 	S -> aSbS -> aebS -> aeb(aSbS) -> aeb(aebS) -> aebaebe = abab
 	S -> a(bSaS)bS -> a(beaS)bS -> a(beae)bS -> abeaebe = abab
 	
-**Few definitions:**
-
+**Few definitions:**<br/>
+<br/>
 What is Left associativity or Right associativity?
 Dictates how the expression should be evaluated i.e whether left side should be evaluated first (Left recursive grammer = A=Aa) or right side should be evaluated first (right recursive grammer A=aA).<br/>
 For ex: a+b+c can be (a+b)+c or a+(b+c). But right way is left associative as it should be evaluated ((a+b)+c). Similarly (((a+b)+c)+d)
@@ -43,13 +44,15 @@ For example: a+b\*c (From https://en.cppreference.com/w/cpp/language/operator_pr
 The right evaluation tree is a+(b\*c).<br/>
 <br/>
 So how we write grammer that can help us work with **ASSOCIATIVITY RULES and PRECEDENCE RULES OF OPERATOR**.<br/>
-**RULES OF THUMB:**<br/>
+**RULES OF THUMB:**
+<br/>
 	1) Use of left/right recursion decides the associativity as it helps to determine wheather LHS is processed first or RHS is processed first.<br/>
 	2) Writing production in a manner that they are further away from Root production controls the precedence. Furthest from root would be first to get evaluated.<br/>
 <br/>
 How to convert ambigous grammers into non ambigous:<br/>
 E = E\*E/E+E/id. <br/>
-*What we infer from the grammer just by looking at it:*<br/>
+**What we infer from the grammer just by looking at it:**
+<br/>
 E+E is ambigous and '+' has no associativity preference. It can be treated as left or right associative.<br/>
 E\*E is ambigous and '\*' has no associativity preference. It can be treated as left or right associative.<br/>
 '\*' and '+' have same precedence as they both are at same level. <br/>
