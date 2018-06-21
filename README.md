@@ -91,6 +91,7 @@ Its evident that above implementation is recursive, but it is NOT checking any c
 <br/>
 On the other hand, Right recursive grammar looks like, A = aA;<br/>
 The implementation of right recursion is of the form:<br/>
+
 ```
 A()
 {
