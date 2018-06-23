@@ -4,7 +4,7 @@
 <br/>
 G = (V, T, P, S) where G = grammar, v = variable, T = terminal, P = production, and S = start symbol<br/>
 <br/>
-Ex: E => E+E | E\*E | id ..Let’s derive id+id+id   (assume input as 2+3+4)<br/>
+Ex: E => E+E | E\*E | id ..Let’s derive id+id+id   (assume input 2+3+4)<br/>
 LISP representation 1:	ADD((2) (ADD ((3) (4))))<br/>
 LISP representation 2:	ADD((ADD ((2)(3))) (4))<br/>
 <br/>
@@ -14,6 +14,7 @@ From above, representation 2 is correct.<br/>
 Let try id\*id+id. (assume input 2\*3+4)<br/>
 LISP representation 1:	MUL((id) (ADD ((3) (4))))<br/>
 LISP representation 2:  ADD((MUL ((2) (3))) (4))<br/>
+<br/>
 Above grammar is ambiguous  as it has 2 AST for same expression. The problem with the grammar is that is not aware of PRECEDENCE RULES OF OPERATOR. <br/>
 As we know that '\*' has higher precedence then '+', '\*' needs to be evaluated first. Hence representation 2 is right.<br/>
 <br/>
@@ -104,5 +105,19 @@ A();
 ```
 <br/>
 And the above function can call condition checks before calling itself, This is the right way of implementing recursive functions.<br/>
-
-From the above, its evident, left recursive grammar are bad, as they can go in infinite recursion.
+<br/>
+From the above, its evident, left recursive grammar are bad, as they can go in infinite recursion.<br/>
+<br/>
+**How to convert Left recursive grammar to Right recursive grammar?**</br>
+<br/>
+Left Recursive grammar:	A=Aa/B  ...Output of grammar = Ba* <br/>
+<br/>
+How can Ba* be represented by Right recursive grammar?<br/>
+A  = BA'<br/>
+A' = aA'/e. (e = epsilon)	<br/>
+<br/>
+Another example: Convert "E=E+F | F" to right recursive. <br/>
+Treat above grammar as A=Aa/B.<br/>
+Then A=E, a=+F, F=B, So from the above example:<br/>
+E  = FE'<br/>
+E' = +F/e<br/>
