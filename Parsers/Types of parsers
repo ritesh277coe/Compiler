@@ -1,0 +1,22 @@
+   
+   None of the parsers can handle Ambigoud grammers except the operator precedence parsers.
+   No Backtracking (Top Down parser) can not handle left recurive grammer and Non deterministic grammer. 
+   So the grammer needs to right recursive and and left factored to avoid Non determinism.
+   Top down works using left derivation and bottom works using reverse of right most derivation.
+   
+   
+                                                             **PARSERS**
+                                                                  |
+                                                                  |
+                            ---------------------------------------------------------------------------------
+                            |                                                                               |
+                      Top Down Parser                                                                 Bottom UP Parser 
+                            |                                                                               |
+          ------------------------------------------                                          ----------------------      
+          |                                         |                                        |                      |
+      With Backtracking                     No Backtracking                       Operator precedence parser     LR Parsers
+          |                                         |                                                          LR(0), SLR(0), LALR(1), CLR   
+      Brute force                     -----------------------------
+                                      |                           |
+                                Recursive descent      Non Recursive descent
+                                                                (LL(1))
